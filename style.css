@@ -1,0 +1,195 @@
+/* === Base Styles === */
+body {
+  background: #0a0a0a;
+  color: #fafafa;
+  margin-top: 72px; /* Adjust for fixed navbar height */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+  padding: 0 2rem 5rem 2rem;
+}
+
+a {
+  color: #7b466a;
+  text-decoration: none;
+}
+a:hover {
+  color: #ad7bc8;
+}
+
+/* === Top Bar / Navbar Styles === */
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: rgba(30, 0, 40, 0.88);
+  z-index: 1000;
+  padding: 16px 32px;
+  display: flex;
+  gap: 32px;
+  border-radius: 0 0 0 18px;
+  box-shadow: 0 4px 12px rgba(120, 60, 155, 0.14);
+}
+.navbar a {
+  color: #e1bbff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: color 0.2s;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+.navbar a:hover,
+.navbar a:focus {
+  color: #fff;
+  background: rgba(120, 60, 155, 0.24);
+}
+
+/* Responsive navbar adjustments */
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    left: auto;
+    padding: 12px 18px;
+    border-radius: 0 0 0 14px;
+    gap: 18px;
+  }
+  body {
+    margin-top: 110px; /* Increase if navbar stacks vertically */
+  }
+}
+
+/* === Profile Picture with Neon Glow === */
+.profile-pic {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  box-shadow:
+    0 0 40px 7px #7b466a,
+    inset 0 0 60px 18px #7b466a;
+  object-fit: cover;
+  margin-left: auto;
+  display: block;
+  cursor: default;
+  transition: box-shadow 0.3s ease;
+}
+.profile-pic:hover {
+  box-shadow:
+    0 0 55px 12px #7b466a,
+    inset 0 0 90px 28px #b19cd9;
+}
+
+/* === Connect Section and Icons === */
+.connect-section {
+  text-align: center;
+  margin-top: 4rem;
+}
+.connect-section h3 {
+  font-size: 2rem;
+  color: #7b466a;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 26px #7b466a;
+}
+.connect-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+.connect-icons a {
+  font-size: 40px;
+  color: #7b466a;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.connect-icons a:hover {
+  color: #fff;
+  transform: scale(1.35);
+}
+
+/* === Content Box / Sections === */
+section.content-box {
+  background: #121212;
+  border: 3.5px solid #7b466a;
+  border-radius: 15px;
+  box-shadow: 0 0 25px 6px #7b466a, inset 0 0 30px 10px #ad7bc8;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 2.7rem 3.3rem 2.6rem 3.3rem;
+  cursor: default;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Strong neon glow on hover and focus */
+section.content-box:hover,
+section.content-box:focus-within {
+  box-shadow:
+    0 0 60px 20px #eabaff,
+    inset 0 0 80px 30px #fab8ff;
+  transform: scale(1.04);
+  outline: none;
+}
+
+
+/* === Typography and Lists inside sections === */
+section.content-box p,
+section.content-box ul li {
+  color: #f0f0f0;
+  font-size: 1.14rem;
+  line-height: 1.67;
+  max-width: 800px;
+  margin: auto;
+}
+
+ul {
+  list-style: disc;
+  padding-left: 1.6rem;
+  margin-top: 0;
+}
+
+ul li {
+  margin-bottom: 0.9rem;
+}
+
+/* Skills list with custom bullets */
+.skills-list {
+  max-width: 400px;
+  margin: auto;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.skills-list li {
+  position: relative;
+  margin-bottom: 14px;
+  padding-left: 24px;
+  font-weight: 600;
+}
+
+.skills-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  background: #7b466a;
+  border-radius: 50%;
+  box-shadow: 0 0 12px 3px #ad7bc8;
+}
+
+/* === Scroll behavior smooth (if not already in html) */
+html {
+  scroll-behavior: smooth;
+}
+
+section.content-box:hover,
+section.content-box:focus,
+section.content-box:focus-within {
+  box-shadow: 
+    0 0 70px 25px #eabaff !important, 
+    inset 0 0 90px 35px #fab8ff !important;
+  transform: scale(1.05) !important;
+  outline: none !important;
+  transition: transform 0.35s ease, box-shadow 0.35s ease !important;
+  cursor: pointer !important;
+}

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>M.A. Samyuktha | Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 0 2rem 5rem 2rem;
+    background: #0a0a0a;
+    color: #fafafa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  a { color: #7b466a; text-decoration: none; }
+  a:hover { color: #ad7bc8; }
+  /* Top navigation bar, not fixed */
+  .top-bar {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 36px 0 18px 0;
+    gap: 16px;
+  }
+  nav.top-menu {
+    display: flex;
+    gap: 34px;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  nav.top-menu a {
+    color: #7b466a;
+    text-decoration: none;
+    padding-bottom: 7px;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.3s, color 0.3s;
+    background: none;
+  }
+  nav.top-menu a:hover,
+  nav.top-menu a.active {
+    border-color: #ad7bc8;
+    color: #ad7bc8;
+  }
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 4.5rem;
+    margin-top: 0px;
+  }
+  .content-section {
+    flex: 1 1 58%;
+    display: flex;
+    flex-direction: column;
+    gap: 4.3rem; /* More space between section boxes! */
+    padding-top: 0.5rem;
+  }
+  .profile-section {
+    flex: 1 1 38%;
+    position: sticky;
+    top: 30px;
+    align-self: flex-start;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 46px;
+  }
+  .profile-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0 0 40px 7px #7b466a, inset 0 0 60px 18px #7b466a;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+    cursor: default;
+    transition: box-shadow 0.3s;
+  }
+  .profile-pic:hover {
+    box-shadow: 0 0 55px 12px #a87cd1, inset 0 0 90px 28px #bda0e8;
+  }
+  .name-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.4rem;
+  }
+  .name-container h1 {
+    font-size: 2.7rem;
+    color: #7b466a;
+    text-shadow: 0 0 32px #7b466a, 0 0 48px #ad7bc8;
+    margin: 0 0 0.2rem 0;
+    background: none !important;
+    box-shadow: none !important;
+    white-space: nowrap;
+    border-radius: 0;
+    text-align: center;
+    padding: 0;
+  }
+  .name-container h2 {
+    font-size: 1.16rem;
+    font-weight: 400;
+    color: #ad7bc8;
+    margin: 0;
+    background: none !important;
+    box-shadow: none !important;
+    text-align: center;
+    text-shadow: 0 0 18px #7b466a;
+  }
+  section.content-box {
+    background: #121212;
+    border: 3.5px solid #7b466a;
+    border-radius: 15px;
+    box-shadow: 0 0 25px 6px #7b466a, inset 0 0 30px 10px #ad7bc8;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 2.7rem 3.3rem 2.6rem 3.3rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+  }
+  section.content-box:not(:first-child) {
+    margin-top: 4rem; /* More space between boxes */
+  }
+  section.content-box:hover,
+  section.content-box:focus-within {
+    box-shadow:
+      0 0 35px 10px #7b466a,
+      inset 0 0 45px 15px #ad7bc8;
+    transform: scale(1.02);
+    outline: none;
+  }
+  section .section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #7b466a;
+    margin-bottom: 1.2rem;
+    text-shadow: 0 0 22px #ad7bc8;
+    text-align: center;
+  }
+  p, ul {
+    color: #f0f0f0;
+    font-size: 1.14rem;
+    line-height: 1.67;
+    max-width: 800px;
+    margin: auto;
+  }
+  ul {
+    list-style: disc;
+    padding-left: 1.6rem;
+    margin-top: 0;
+  }
+  ul li { margin-bottom: 0.9rem; }
+  .skills-list-container {
+    background: transparent;
+    cursor: inherit;
+  }
+  .skills-list {
+    max-width: 400px;
+    margin: auto;
+    list-style-type: none;
+    padding-left: 0;
+  }
+  .skills-list li {
+    position: relative;
+    margin-bottom: 14px;
+    padding-left: 24px;
+    font-weight: 600;
+  }
+  .skills-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    background: #7b466a;
+    border-radius: 50%;
+    box-shadow: 0 0 12px 3px #ad7bc8;
+  }
+  .connect-section { text-align: center; margin-bottom: 1.3rem; }
+  .connect-section h3 {
+    font-size: 2rem;
+    color: #7b466a;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 26px #ad7bc8;
+  }
+  .connect-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  .connect-icons a {
+    font-size: 40px;
+    color: #7b466a;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  .connect-icons a:hover {
+    color: #fff;
+    transform: scale(1.35);
+  }
+  .resume-section {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .resume-section h3 {
+    color: #7b466a;
+    font-size: 2rem;
+    text-shadow: 0 0 26px #ad7bc8;
+    margin-bottom: 1rem;
+  }
+  .resume-section a {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #7b466a;
+    border-radius: 9px;
+    box-shadow: 0 0 25px #ad7bc8;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  .resume-section a:hover { background-color: #ad7bc8; }
+  @media (max-width: 1000px) {
+    .container { flex-direction: column; gap: 0; }
+    .profile-section { position: static; margin-bottom: 2.5rem; margin-top: 35px; }
+    .content-section { padding: 0; }
+    .top-bar { padding-right: 0; }
+  }
+  @media (max-width: 600px) {
+    .profile-pic { width: 180px; height: 180px; }
+    .name-container h1 { font-size: 1.5rem; }
+    .container { padding: 0; gap: 0; }
+    .content-section { gap: 2.2rem; }
+    section.content-box { padding: 1.3rem 0.8rem; }
+    .top-bar { padding: 24px 0 10px 0; }
+    nav.top-menu { font-size: 1rem; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <nav class="top-menu" aria-label="Main navigation">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#resume">Resume</a>
+    <a href="#connect">Connect</a>
+  </nav>
+</div>
+<div class="container">
+  <div class="content-section">
+    <section class="content-box" id="about" tabindex="0">
+      <h3 class="section-title">About Me</h3>
+      <p>
+        AI student with international research experience and internship exposure at Nokia &amp; Alstom.
+        Skilled in model testing, analytics, and performance optimization. Fluent in English, French, Tamil, Hindi.<br><br>
+        <strong>Data Analyst | Data Science | Machine Learning | Artificial Intelligence</strong>
+      </p>
+    </section>
+    <section class="content-box" id="skills" tabindex="0">
+      <h3 class="section-title">Skills</h3>
+      <div class="skills-list-container">
+        <ul class="skills-list">
+          <li>Machine Learning</li>
+          <li>DBMS</li>
+          <li>SQL</li>
+          <li>Artificial Intelligence</li>
+          <li>Python Programming</li>
+          <li>SPSS</li>
+          <li>Power BI</li>
+          <li>AI Tools</li>
+          <li>Advance Excel</li>
+          <li>Algorithm Implementation</li>
+          <li>Data Analytics</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>Selenium WebDriver</li>
+        </ul>
+      </div>
+    </section>
+    <section class="content-box" id="education" tabindex="0">
+      <h3 class="section-title">Education & Internship Experience</h3>
+      <p>
+        <strong>B.Sc. Artificial Intelligence (CGPA: 8.6)</strong>, Saveetha University, Chennai<br><br>
+        <strong>Internship Experience:</strong><br>
+        Nokia Networks & Solutions – ML project validation/testing<br>
+        Alstom Transport India – Production planning & data analysis
+      </p>
+    </section>
+    <section class="content-box" id="certifications" tabindex="0">
+      <h3 class="section-title">Certifications & Achievements</h3>
+      <ul>
+        <li>International AI Research Paper – UAE Conference</li>
+        <li>Excel Using AI Workshop (2025)</li>
+        <li>Introduction to Data Analytics Using Power BI (2025)</li>
+        <li>IBM Certified: AI Ethics, Customer Engagement</li>
+        <li>Hindi Literature Graduate (2020)</li>
+      </ul>
+    </section>
+    <section class="resume-section" id="resume" tabindex="0">
+      <h3>Resume</h3>
+      <a href="Samyuktha-Resume.pdf" download>Download Resume (PDF)</a>
+    </section>
+    <section class="connect-section" id="connect" tabindex="0">
+      <h3>Let's Connect!</h3>
+      <div class="connect-icons">
+        <a href="https://github.com/SamyukthaMA" target="_blank" rel="noopener noreferrer" title="GitHub Profile" aria-label="GitHub Profile">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/samyuktha-anand-raj-6a1721278/" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" aria-label="LinkedIn Profile">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=samyukthaanandraj@gmail.com" target="_blank" rel="noopener noreferrer" title="Send Email" aria-label="Send Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+    </section>
+  </div>
+  <aside class="profile-section" aria-label="Profile">
+    <img src="profile.jpg" alt="M.A. Samyuktha" class="profile-pic" />
+    <div class="name-container">
+      <h1>M.A. Samyuktha</h1>
+      <h2>Artificial Intelligence</h2>
+    </div>
+  </aside>
+</div>
+</body>
+</html>
